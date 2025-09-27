@@ -1,0 +1,27 @@
+{
+  "name": "bun-elysiajs-cfworkers-template",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "bun run generate:openapi && wrangler dev",
+    "deploy": "bun run generate:openapi && bun test tests/openapi-freshness.test.ts && wrangler deploy --env=\"\"",
+    "generate:openapi": "bun run scripts/generate-openapi.ts",
+    "test": "bun test",
+    "test:openapi": "bun test tests/openapi-freshness.test.ts",
+    "typecheck": "tsc --noEmit",
+    "format": "bunx --bun prettier --write .",
+    "lint": "bunx --bun eslint ."
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250927.0",
+    "@elysiajs/openapi": "^1.4.11",
+    "@elysiajs/swagger": "^1.3.1",
+    "bun-types": "^1.2.22",
+    "toml": "^3.0.0",
+    "typescript": "^5.7.3",
+    "wrangler": "^4.40.2"
+  },
+  "dependencies": {
+    "elysia": "^1.4.7"
+  }
+}
